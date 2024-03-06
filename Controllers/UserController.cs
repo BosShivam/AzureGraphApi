@@ -27,7 +27,7 @@ namespace AzureGraphApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            _graphServiceClient.Invitations.PostAsync(new Invitation { });
+            //_graphServiceClient.Invitations.PostAsync(new Invitation { });
             var tmp = await _graphServiceClient.Users.GetAsync();
             var tmp2 = _graphServiceClient.Users.ToGetRequestInformation();
 
