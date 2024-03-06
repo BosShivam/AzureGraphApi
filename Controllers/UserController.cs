@@ -27,9 +27,18 @@ namespace AzureGraphApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var tmp = await _graphServiceClient.Users.GetAsync();
+            var userCollection = await _graphServiceClient.Users.GetAsync();
 
-            return Ok(tmp.Value);
+            return Ok(userCollection.Value);
+        }
+
+
+        [HttpGet("userId")]
+        public async Task<IActionResult> GetUserById(string userId)
+        {
+            var user = await _graphServiceClient.Users[userId].GetAsync();
+
+            return Ok(user);
         }
     }
 }
